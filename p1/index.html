@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>p1</title>
+	<script>
+		// ¿Cuál es el problema con el siguiente código?
+		var alumno1 = {nombre: "Matías", edad: 5}
+		var alumno2 = alumno1
+		alumno2.nombre = "Sebastián"
+		// R: el problema es que se cree que se esta haciendo una copia de alumno1 en alumno2
+		// pero no es asi, alumno2 es solo una referencia a alumno1, por lo que al cambiar alumno2
+		// modifica tambien alumno1
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

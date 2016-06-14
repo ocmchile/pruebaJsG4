@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>p4</title>
+	<script>
+		// Se pide crear una página que permita al usuario poner texto y darle estilo, para eso tendrá un textarea donde
+		// podrá escribir, todo lo que escriba debe aparecer como texto a la derecha.
+		// Además dispondrá de los siguientes controles que modificarán las propiedades del texto a la derecha.
+		// -­ Un selector de colores.
+		// -­ Un input que permita definir el tamaño del texto
+		// -­ Un input que permita definir la tipografía
+	</script>
+	<style>
+		#texto {
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<textarea name="texto" id="texto" cols="50" rows="10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex explicabo, cupiditate laborum! Id, itaque suscipit excepturi quis architecto dolores nobis pariatur, consectetur nihil minus, natus doloremque magnam assumenda. Officiis, at.</textarea>
+	<br>
+	<input type="color" name="color" id="color" value="#000000">
+	<br>
+	<input type="text" name="tamanio" id="tamanio" placeholder="ingrese tamaño texto" value="16px">
+	<br>
+	<input type="text" name="tipografia" id="tipografia" placeholder="escriba la tipografia" value="Arial">
+	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script>
+		$("#color").on("input", function() {
+			$("#texto").css("color", $(this).val());
+		});
+
+		$("#tamanio").on("input", function() {
+			$("#texto").css("font-size", $(this).val());
+		});
+
+		$("#tipografia").on("input", function() {
+			$("#texto").css("font-family", $(this).val());
+		});
+	</script>
+</body>
+</html>

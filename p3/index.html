@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>p3</title>
+	<script>
+		// Se pide modelar el siguiente problema:
+		// En una sala de clases hay alumnos, cada alumno tiene notas y un promedio final. Se pide:
+		// - Crear la función constructora alumno que recibe el nombre de éste y un arreglo con las notas
+		// - La función constructora debe revisar que el nombre sea un string y que el arreglo de notas sean integers
+		// - Crear el método promedio que devuelva el promedio de notas de todos los alumnos.
+		// alumno1 = Student.new("Oscar", [10, 9, 10])
+		// alumno1.promedio() // 9.6666667
+
+		function Student(nombre, arrNotas) {
+			this.nombre = "";
+			this.notas;
+			this.promedio = 0;
+
+			this.validaNombre = function () {
+				if (isNaN(nombre)) {
+					return true;
+				}
+				else {
+					false;
+				}
+			}
+
+			this.validaNotas = function(arrNotas) {
+				if (arrNotas.length >= 1) {
+					for (var i=0; i<arrNotas.length; i++) {
+						if (isNaN(arrNotas[i])) {
+							return false;
+						}
+					}
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+
+			this.setNombre = function() {
+				if (this.validaNombre(nombre)) {
+					this.nombre = nombre;
+				}
+			}
+
+			this.promedio = function() {
+
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

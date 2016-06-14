@@ -4,46 +4,33 @@
 	<meta charset="UTF-8">
 	<title>p6</title>
 	<script>
-		// Crear un cuadradro en pantalla de color, con las teclas de flechas derecha e izquierda se deberá poder mover
-		// el cuadrado 50px en la dirección respectiva.
+		// Se pide crear una página donde se encuentre sólo un div y dentro de éste se encuentre una lista ordenada
+		// con 3 elementos en la lista, "Elemento 1", "Elemento 2" y "Elemento 3".
+		// Programar que al hacer click sobre el div se cree un elemento de la lista consecutivo(en este caso "Elemento 4
+		// " y así sucesivamente), pero que al hacer click sobre un elemento "li", NO se cree el elemento consecutivo.
 	</script>
-	<style>
-		#cuadrado {
-			width: 50px;
-			height: 50px;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			background-color: lightblue;
-			position: absolute;
-		}
-	</style>
 </head>
 <body>
+	<div id="divContainer">
+		<ol>
+			<li>Elemento 1</li>
+			<li>Elemento 2</li>
+			<li>Elemento 3</li>
+		</ol>
+	</div>
 	<!-- jQuery -->
 	<div id="cuadrado"></div>
 	<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script>
-		$(document).ready(function(){
-		    $('body').keyup(function (event) {
-		    	//izquierda
-		        if (event.keyCode == 37) {
-		        	$('#cuadrado').css("left", parseInt($('#cuadrado').css("left")) - 50);
-		        }
-		        //derecha
-		        if (event.keyCode == 39) {
-		        	$('#cuadrado').css("left", parseInt($('#cuadrado').css("left")) + 50);
-		        }
-		        //arriba
-		        if (event.keyCode == 38) {
-		        	$('#cuadrado').css("top", parseInt($('#cuadrado').css("top")) - 50);
-		        }
-		        //abajo
-		        if (event.keyCode == 40) {
-		        	$('#cuadrado').css("top", parseInt($('#cuadrado').css("top")) + 50);
-		        }
-		    });
+		$("#divContainer").click(function(event) {
+			var target = $(event.target);
+			if (target.is("ol li")){
+				event.preventDefault();
+			}
+			else {
+				var elementos = $("ol li").size();
+				$("ol li").last().after("<li>Elemento " + (elementos + 1) + "</li>");
+			}
 		});
 	</script>
 </body>

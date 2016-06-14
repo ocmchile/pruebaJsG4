@@ -14,7 +14,7 @@
 
 		function Student(nombre, arrNotas) {
 			this.nombre = "";
-			this.notas;
+			this.notas = [];
 			this.promedio = 0;
 
 			this.validaNombre = function () {
@@ -22,11 +22,11 @@
 					return true;
 				}
 				else {
-					false;
+					return false;
 				}
 			}
 
-			this.validaNotas = function(arrNotas) {
+			this.validaNotas = function() {
 				if (arrNotas.length >= 1) {
 					for (var i=0; i<arrNotas.length; i++) {
 						if (isNaN(arrNotas[i])) {
@@ -46,10 +46,32 @@
 				}
 			}
 
-			this.promedio = function() {
+			this.setNotas = function() {
+				if (this.validaNotas(arrNotas)) {
+					this.notas = arrNotas;
+				}
+			}
 
+			this.promedio = function() {
+				var sum = 0, prom = 0;
+				for (var i=0; i<this.notas.length; i++) {
+					sum += this.notas[i];
+				}
+				if (sum > 0) {
+					prom = sum/this.notas.length;
+					this.promedio = prom;
+					return (prom);
+				}
+				else {
+					return 0;
+				}
 			}
 		}
+
+		var alumno1 = new Student("Oscar", [10, 9, 10]);
+		alumno1.setNombre();
+		alumno1.setNotas();
+		console.log(alumno1.promedio()); // 9.6666667
 	</script>
 </head>
 <body>
